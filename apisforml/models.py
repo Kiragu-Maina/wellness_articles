@@ -13,10 +13,10 @@ class Article(models.Model):
     readmoreurl = models.URLField(null=True, blank=True)
     
     def save(self, *args, **kwargs):
-        # Truncate the title and author fields if they exceed their maximum length
-        if len(self.title) > self._meta.get_field('title').max_length:
+        # Check if title and author are not None before truncating
+        if self.title is not None and len(self.title) > self._meta.get_field('title').max_length:
             self.title = self.title[:self._meta.get_field('title').max_length]
-        if len(self.author) > self._meta.get_field('author').max_length:
+        if self.author is not None and len(self.author) > self._meta.get_field('author').max_length:
             self.author = self.author[:self._meta.get_field('author').max_length]
 
         # Call the original save method to save the instance
