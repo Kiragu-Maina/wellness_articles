@@ -8,7 +8,7 @@ def articletodb():
             q='health, wellness, fitness, mental-health',
             language='en',
             sort_by='relevancy',
-            page_size=50  # Specify the page you want to fetch
+            page_size=50  # Specify the no. of articles you want to fetch
         )
 
         articles = articles_response.get('articles', [])  # Get the 'articles' list from the response

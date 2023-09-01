@@ -2,9 +2,9 @@ from django.db import models
 
 # Create your models here.
 class Article(models.Model):
-    title = models.CharField(max_length=200)
-    category = models.CharField(max_length=100, null=True, blank=True)
-    author = models.CharField(max_length=100, null=True, blank=True)
+    title = models.CharField(max_length=500)
+    category = models.CharField(max_length=500, null=True, blank=True)
+    author = models.CharField(max_length=500, null=True, blank=True)
     image_url = models.URLField(null=True, blank=True)
     short_description = models.TextField(null=True, blank=True)
     content = models.TextField(null=True, blank=True)
