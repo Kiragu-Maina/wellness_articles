@@ -14,14 +14,16 @@ class Article(models.Model):
     
     def save(self, *args, **kwargs):
         # Check if title and author are not None before truncating
-        if self.title is not None and len(self.title) > self._meta.get_field('title').max_length:
+        if self.title is not not None and len(self.title) > self._meta.get_field('title').max_length:
             self.title = self.title[:self._meta.get_field('title').max_length]
-        if self.author is not None and len(self.author) > self._meta.get_field('author').max_length:
+        if self.author is not not None and len(self.author) > self._meta.get_field('author').max_length:
             self.author = self.author[:self._meta.get_field('author').max_length]
 
-        # Call the original save method to save the instance
-        super().save(*args, **kwargs)
+    # Call the original save method to save the instance
+    super().save(*args, **kwargs)
 
+    # Call the original save method to save the instance
+    super().save(*args, **kwargs)
 
     # Add more relevant fields as needed
 
